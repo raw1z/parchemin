@@ -25,7 +25,7 @@ Then just add your articles in the articles directory. Parchemin only support Ma
     <!-- abstract : "Lorem ipsum dolor sit amet, consectetur adipisicing elit...mollit anim id est laborum." -->
     <!-- tags : %w(tutorial sinatra) -->
     
-That'all folks!! You will find some examples in GEM_PATH/bin/articles. For more information, visit [http://parchemin.raw1z.fr](http://parchemin.raw1z.fr).
+That's all!! You will find some examples in GEM_PATH/bin/articles. For more information, visit [http://parchemin.raw1z.fr](http://parchemin.raw1z.fr).
 
 ## Note on Patches/Pull Requests ##
  
