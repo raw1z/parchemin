@@ -17,8 +17,8 @@ module Parchemin
       request.params.replace new_params
     end
 
-    # Partial implementation
     helpers do
+      # Partial rendering implementation
       def partial(template, *args)
         options = args.last.is_a?(::Hash) ? args.pop : {}
         options.merge!(:layout => false)
@@ -32,14 +32,16 @@ module Parchemin
       end
     end
 
-    # Flash implementation
+
     use Rack::Session::Cookie
 
     helpers do
+      # Flash implementation
       def flash
         @_flash ||= {}
       end
 
+      # Redefine redirect() to add flash support
       def redirect(uri, *args)
         session[:_flash] = flash unless flash.empty?
         status 302
