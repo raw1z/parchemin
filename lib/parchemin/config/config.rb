@@ -49,6 +49,26 @@ module Parchemin
       @root_path
     end
     
+    # sets the directory where to find the views. By defaut it is sets to ROOT_PATH/views
+    def self.views_path=(path)
+      @views_path = path
+    end
+    
+    # return the directory where to find the views
+    def self.views_path
+      @views_path ||= "#{root_path}/views"
+    end
+    
+    # sets the directory where to find the assets. By defaut it is sets to ROOT_PATH/assets
+    def self.assets_path=(path)
+      @assets_path = path
+    end
+    
+    # return the directory where to find the assets
+    def self.assets_path
+      @assets_path ||= "#{root_path}/assets"
+    end
+    
     # sets the directory where to find the articles. By defaut it is sets to ROOT_PATH/articles
     def self.articles_path=(path)
       @articles_path = path

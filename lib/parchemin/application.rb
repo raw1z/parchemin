@@ -7,8 +7,8 @@ module Parchemin
   # The entire blog is based on this rack application
   class Application < Sinatra::Base
     
-    set :public, Proc.new { File.expand_path(File.join(Parchemin::Config.root_path, 'assets')) }
-    set :views, Proc.new { File.expand_path(File.join(Parchemin::Config.root_path, 'views')) }
+    set :public, Proc.new { Parchemin::Config.assets_path }
+    set :views, Proc.new { Parchemin::Config.views_path }
     
     require File.join(File.dirname(__FILE__), "config/environment")
     
