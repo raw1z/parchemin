@@ -1,0 +1,191 @@
+/* @group reset */
+@import compass/reset
+
+/* @end */
+
+/* @group defaults */
+@import base
+
+/* @end */
+
+/* @group structure mixins */
+=details
+  +rounded
+  padding: $px2em * 5px
+  background-color: #eeeeee
+  
+  span
+    font-weight: bold
+    color: #aaaaaa
+  a:link, a:visited
+    font-weight: bold
+
+/* @end */
+
+body
+  +susy
+
+#page
+  +container
+  color: $font_color
+
+#header
+  +columns(11)
+  +prefix(1)
+  +full
+  +title-family
+  margin-bottom: 2em
+  margin-top: 2em
+  
+  .brand
+    font-size: 4em
+    font-weight: bold
+    a
+      &:hover
+        border: none
+        
+  .tagline
+    font-size: 1.2em
+    margin-top: 1em
+    color: #aaaaaa
+
+#contents
+  +columns(9)
+  +alpha
+  
+  .description
+    +columns(9, 9)
+    +full
+    font-size: 1.2em
+    margin-bottom: 1em
+    
+  .bottom
+    +columns(7, 9)
+    +prefix(1, 9)
+    margin-top: 1em
+    
+  #flash
+    +columns(7, 9)
+    +prefix(1, 9)
+    margin-top: 1em
+    margin-bottom: 1em
+    .flash
+      +rounded
+      padding: $px2em * 5px
+      color: white
+    .notice
+      background-color: #50ca1d
+    .error
+      background-color: #bc3739
+      
+  .article
+    +columns(7, 9)
+    +prefix(1, 9)
+    .title
+      +title-family
+      font-size: 2em
+      margin-bottom: $px2em * 2px
+      font-weight: bold
+      color: black
+    .created_at
+      font-size: 0.8em
+      color: #aaaaaa
+    .details
+      +details
+      
+    #comments
+      padding-top: 1em
+      .hint
+        +title-family
+        font-weight: bold
+        margin-bottom: 1em
+        font-size: 1.1em
+        
+      .main
+        border-bottom:
+          width: $px2em * 2px
+          style: solid
+          color: black
+          
+      .comment
+        +columns(7, 7)
+        +full
+        margin-bottom: 1em
+        
+        .infos
+          +columns(2, 7)
+          text-align: right
+          
+          .author
+            +title-family
+            font-weight: bold
+            
+          .email, .website, .date
+            font-size: 0.8em
+            color: #aaaaaa
+            
+        .content
+          +columns(4, 7)
+          +suffix(1, 7)
+          +omega(7)
+          
+      .add
+        +columns(7, 7)
+        +full
+        padding-top: 1em
+        
+        form
+          +columns(5, 7)
+          +prefix(1, 7)
+          label
+            font-weight: bold
+          textarea
+            height: 10em
+          .hint
+            color: #aaaaaa
+            font-size: 0.8em
+            text-align: right
+            
+  .abstract
+    +columns(7, 9)
+    +prefix(1, 9)
+    margin-bottom: 2em
+    
+    .created_at
+      +columns(1, 7)
+      +rounded
+      background-color: black
+      color: white
+      text-align: center
+      font-family: Georgia, serif
+      font-weight: bold
+      
+    .content
+      +columns(6, 7)
+      +omega(7)
+      .title
+        +title-family
+        font-size: 1.5em
+        margin-bottom: $px2em * 5px
+        font-weight: bold
+        
+      .details
+        margin-top: 1em
+        +details
+
+#sidebar
+  +columns(3)
+  +omega
+  dt
+    margin-bottom: $px2em * 5px
+  img
+    +rounded
+    float: left
+    margin-right: $px2em * 5px
+
+#footer
+  +columns(12)
+  +full
+  text-align: center
+  font-size: 0.7em
+  margin-top: 1em

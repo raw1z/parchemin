@@ -1,0 +1,23 @@
+.add
+  .hint.main Ecrire un commentaire
+  %form{:method => :post, :action => "/comment", :id => 'new_comment'}
+
+    %label Nom :
+    %input{:type => :text, :name => 'comment[author]', :value => @comment.author}
+    .hint (Obligatoire)
+  
+    %label Email :
+    %input{:type => :text, :name => 'comment[email]', :value => @comment.email}
+    .hint (Facultatif. Ne sera pas publié)
+  
+    %label Site web:
+    %input{:type => :text, :name => 'comment[website]', :value => @comment.website}
+    .hint (Facultatif)
+  
+    %label Commentaire :
+    %textarea{:name => 'comment[body]', :value => @comment.body}
+    .hint (Obligatoire)
+  
+    %input{:type => 'hidden', :name => 'comment[article]', :value => @article.filename}
+  
+    %input{:type => 'submit', :value => 'Envoyer'}

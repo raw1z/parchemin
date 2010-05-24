@@ -5,29 +5,32 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "parchemin"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "File-based blog engine"
+    gem.description = "Parchemin allows you to create and manage a blog whose contents are not stored in a database but directly in files"
     gem.email = "dev@raw1z.fr"
     gem.homepage = "http://github.com/raw1z/parchemin"
     gem.authors = ["Rawane ZOSSOU"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "rack-test", ">= 0.5.3"
+    gem.add_development_dependency "nokogiri", ">= 1.4.2"
+    gem.add_dependency 'sinatra', '>= 1.0'
+    gem.add_dependency 'haml', '>= 3.0.4'
+    gem.add_dependency 'compass', '>= 0.10.1'
+    gem.add_dependency 'compass-susy-plugin', '>= 0.7.0.pre8'
+    gem.add_dependency 'rdiscount', '>= 1.6.3'
+    gem.files =  FileList["[A-Z]*", "{lib}/**/*", "{bin}/**/*", "{app}/**/*"]
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+require 'rspec/core'
+require 'rspec/core/rake_task'
+Rspec::Core::RakeTask.new(:spec) do |spec|
 end
 
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
+Rspec::Core::RakeTask.new(:rcov) do |spec|
 end
 
 task :spec => :check_dependencies

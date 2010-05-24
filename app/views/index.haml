@@ -1,0 +1,17 @@
+- if @tag
+  .description= "Articles dans la catégorie '<b>#{@tag}</b>' :"
+  
+- if @search
+  .description= "#{@articles.count} résultat(s) pour la recherche '<b>#{@search}</b>' :"
+  
+- @articles.each do |article|
+  .abstract
+    .created_at
+      .month= article.month.upcase
+      .day= article.day
+    .content
+      .title
+        %a{:href => "/articles/#{article.id}"}= article.title
+      .body
+        %div= article.abstract
+      = partial :article_details, :locals => {:article => article}

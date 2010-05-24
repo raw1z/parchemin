@@ -1,0 +1,24 @@
+#flash
+  - flash.each do |name, msg|
+    %div{:class => "flash #{name}"}= msg
+    
+.article
+  .title= @article.title
+  .created_at= "posté le #{@article.date}"
+  .body= @article.body
+  .details= partial :article_details, :locals => {:article => @article}
+      
+  #comments
+    - if @comments.count > 0
+      .hint.main Commentaires
+    - @comments.each do |comment|
+      .comment
+        .infos
+          .author= comment.author
+          - if not comment.website.nil? and not comment.website.empty?
+            .website= comment.website
+          .date= comment.created_at.strftime('%d/%m/%Y')
+        .content
+          = comment.body
+    = partial :new_comment
+        

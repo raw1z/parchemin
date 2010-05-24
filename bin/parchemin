@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'haml'
+require 'fileutils'
+
+#############################################
+# create the parchemin-based blog directory #
+#############################################
+
+# The blog must be given a name
+unless ARGV.size == 2
+  puts "Usage: parchemin BLOG_NAME AUTHOR_NAME"
+  exit
+end
+
+blog_name = ARGV[0]
+author_name = ARGV[1]
+
+# Create the directory structure
+Dir.mkdir(blog_name)
+Dir.mkdir("#{blog_name}/articles")
+Dir.mkdir("#{blog_name}/statics")
+
+# create the statics
+FileUtils.cp File.join(File.dirname(__FILE__), "templates/about.markdown"), "#{blog_name}/statics/about.markdown"
+FileUtils.cp File.join(File.dirname(__FILE__), "templates/abstract.markdown"), "#{blog_name}/statics/abstract.markdown"
+
+# Create the rack file
+template = File.read(File.join(File.dirname(__FILE__), "templates/config.ru.haml"))
+haml_engine = Haml::Engine.new(template)
+File.open("#{blog_name}/config.ru", 'w') do |f|
+  f.write(haml_engine.render(Object.new, :blog_name => blog_name, :author_name => author_name, :dirname => `pwd`))
+end

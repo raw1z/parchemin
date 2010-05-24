@@ -1,0 +1,9 @@
+require 'parchemin'
+
+Parchemin::Config.blog_name = "#{blog_name}"
+Parchemin::Config.author_name = "#{author_name}"
+Parchemin::Config.host = "www.#{blog_name}.com"
+Parchemin::Config.project_path = "#{dirname.strip}/#{blog_name}"
+Parchemin::Config.db_name = "#{blog_name}"
+
+run Parchemin::Application

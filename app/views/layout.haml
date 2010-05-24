@@ -1,0 +1,37 @@
+!!!5
+%html{html_attrs('fr')}
+  %head
+    %title= @blog_name
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
+    %link{:href=>"/layout.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
+    
+  %body
+    #page
+    
+      #header
+        .brand
+          %a{:href => '/'}= @blog_name
+        .tagline= "par #{@author_name}"
+      
+      #contents= yield
+      
+      #sidebar
+        %dl
+          %dt Recherche
+          %dd
+            %form{:method => :get, :action => '/search'}
+              %input{:type => 'text', :name => 'search'}
+        %dl
+          %dt A propos
+          %dd
+            %img{:src => '/images/user.png'}
+            = @abstract.body(false)
+            %a{:href => '/statics/about'}= "Plus..."
+            
+        %dl
+          %dt
+          %dd
+            %a{:href => '/rss', :class => 'syndication'}
+              %img{:src => '/images/feed-icon.png', :alt => 'Syndication'}
+        
+      #footer= "Créé par Rawane ZOSSOU"

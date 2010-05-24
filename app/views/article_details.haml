@@ -1,0 +1,7 @@
+.details
+  %span tags :
+
+  - article.tags.each do |tag|
+    %a{:href => "/tags/#{tag}"}= tag
+  
+  %span= "| commentaires : #{article.comments.count}"
