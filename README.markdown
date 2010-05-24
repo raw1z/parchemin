@@ -1,8 +1,18 @@
-= parchemin
+# parchemin #
 
-Description goes here.
+Parchemin allows you to create and manage a blog whose contents are not stored in a database but directly in files.
 
-== Note on Patches/Pull Requests
+## Installation ##
+
+Just run the following command :
+
+    gem install parchemin
+    
+## Usage ##
+
+For more information, visit [http://parchemin.raw1z.fr](http://parchemin.raw1z.fr).
+
+## Note on Patches/Pull Requests ##
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -12,6 +22,6 @@ Description goes here.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+## Copyright ##
 
 Copyright (c) 2010 Rawane ZOSSOU. See LICENSE for details.
