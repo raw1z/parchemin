@@ -3,6 +3,8 @@
 require File.join(File.dirname(__FILE__), "config/config")
 
 module Parchemin
+  
+  # The entire blog is based on this rack application
   class Application < Sinatra::Base
     
     set :public, Proc.new { File.expand_path(File.join(Parchemin::Config.root_path, 'assets')) }

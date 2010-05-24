@@ -1,6 +1,8 @@
 # coding: utf-8
 
 module Parchemin
+  
+  # This class represents an article's comment
   class Comment
     include Mongoid::Document
     include Mongoid::Timestamps
