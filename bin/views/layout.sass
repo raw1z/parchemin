@@ -30,15 +30,14 @@ body
   color: $font_color
 
 #header
-  +columns(11)
-  +prefix(1)
+  +columns(12)
   +full
   +title-family
   margin-bottom: 2em
   margin-top: 2em
   
   .brand
-    font-size: 4em
+    font-size: 3em
     font-weight: bold
     a
       &:hover
@@ -65,8 +64,7 @@ body
     margin-top: 1em
     
   #flash
-    +columns(7, 9)
-    +prefix(1, 9)
+    +columns(8, 9)
     margin-top: 1em
     margin-bottom: 1em
     .flash
@@ -79,8 +77,7 @@ body
       background-color: #bc3739
       
   .article
-    +columns(7, 9)
-    +prefix(1, 9)
+    +columns(8, 9)
     .title
       +title-family
       font-size: 2em
@@ -108,12 +105,12 @@ body
           color: black
           
       .comment
-        +columns(7, 7)
+        +columns(8,8)
         +full
         margin-bottom: 1em
         
         .infos
-          +columns(2, 7)
+          +columns(2,8)
           text-align: right
           
           .author
@@ -125,18 +122,18 @@ body
             color: #aaaaaa
             
         .content
-          +columns(4, 7)
-          +suffix(1, 7)
-          +omega(7)
+          +columns(5,8)
+          +suffix(1,8)
+          +omega(8)
           
       .add
-        +columns(7, 7)
+        +columns(8,8)
         +full
         padding-top: 1em
         
         form
-          +columns(5, 7)
-          +prefix(1, 7)
+          +columns(5,8)
+          +prefix(1,8)
           label
             font-weight: bold
           textarea
@@ -147,12 +144,11 @@ body
             text-align: right
             
   .abstract
-    +columns(7, 9)
-    +prefix(1, 9)
+    +columns(8, 9)
     margin-bottom: 2em
     
     .created_at
-      +columns(1, 7)
+      +columns(1,8)
       +rounded
       background-color: black
       color: white
@@ -161,8 +157,8 @@ body
       font-weight: bold
       
     .content
-      +columns(6, 7)
-      +omega(7)
+      +columns(7,8)
+      +omega(8)
       .title
         +title-family
         font-size: 1.5em
@@ -176,12 +172,15 @@ body
 #sidebar
   +columns(3)
   +omega
+  font-size: 0.9em
+  line-height: 1.4em
+  
   dt
     margin-bottom: $px2em * 5px
   img
     +rounded
     float: left
-    margin-right: $px2em * 5px
+    margin-right: $px2em * 20px
 
 #footer
   +columns(12)

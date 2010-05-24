@@ -18,5 +18,5 @@ end
 Parchemin::Config.blog_name = "Parchemin Test"
 Parchemin::Config.author_name = "Rawane ZOSSOU"
 Parchemin::Config.host = "http://example.com"
-Parchemin::Config.project_path = File.join(File.dirname(__FILE__), 'bin')
+Parchemin::Config.root_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin'))
 Parchemin::Config.db_name = 'parchemin_test'

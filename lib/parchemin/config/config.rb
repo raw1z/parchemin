@@ -30,13 +30,13 @@ module Parchemin
       @host
     end
     
-    def self.project_path=(path)
-      @project_path = path
+    def self.root_path=(path)
+      @root_path = path
     end
     
-    def self.project_path
-      raise "The project_path configuration variable has not been set" if @project_path.nil?
-      @project_path
+    def self.root_path
+      raise "The root_path configuration variable has not been set" if @root_path.nil?
+      @root_path
     end
     
     def self.articles_path=(path)
@@ -44,7 +44,7 @@ module Parchemin
     end
     
     def self.articles_path
-      @articles_path ||= "#{project_path}/articles"
+      @articles_path ||= "#{root_path}/articles"
     end
     
     def self.statics_path=(path)
@@ -52,7 +52,7 @@ module Parchemin
     end
     
     def self.statics_path
-      @statics_path ||= "#{project_path}/statics"
+      @statics_path ||= "#{root_path}/statics"
     end
        
     def self.db_name=(name)

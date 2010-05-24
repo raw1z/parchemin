@@ -27,10 +27,10 @@ describe "Parchemin" do
   end
   
   it "renders an article" do
-    article = Parchemin::Article.new(File.expand_path(File.dirname(__FILE__) + '/bin/articles/lorem.markdown'))
-    Parchemin::Comment.create(:article => article.filename, :author => 'Rawane', :body => 'test')
-    Parchemin::Comment.create(:article => article.filename, :author => 'Rawane', :body => 'test')
-    Parchemin::Comment.create(:article => article.filename, :author => 'Rawane', :body => 'test')
+    article = Parchemin::Article.new('lorem')
+    Parchemin::Comment.create(:article => article.id, :author => 'Rawane', :body => 'test')
+    Parchemin::Comment.create(:article => article.id, :author => 'Rawane', :body => 'test')
+    Parchemin::Comment.create(:article => article.id, :author => 'Rawane', :body => 'test')
     
     get 'articles/lorem'
     
@@ -60,9 +60,9 @@ describe "Parchemin" do
   end
   
   it "creates articles comments with valid attributes" do
-    article = Parchemin::Article.new(File.expand_path(File.dirname(__FILE__) + '/bin/articles/azerty.markdown'))
+    article = Parchemin::Article.new('azerty')
     
-    post '/comment', {:comment => {:article => article.filename, :author => 'Rawane', :body => 'test'}}
+    post '/comment', {:comment => {:article => article.id, :author => 'Rawane', :body => 'test'}}
     follow_redirect!
 
     last_request.url.should == "http://example.org/articles/#{article.id}"
@@ -77,9 +77,9 @@ describe "Parchemin" do
   end
   
   it "does not create an article'comment with invalid attributes" do
-    article = Parchemin::Article.new(File.expand_path(File.dirname(__FILE__) + '/bin/articles/tellus.markdown'))
+    article = Parchemin::Article.new('tellus')
     
-    post '/comment', {:comment => {:article => article.filename, :author => 'Rawane'}}
+    post '/comment', {:comment => {:article => article.id, :author => 'Rawane'}}
     
     article.comments.count.should == 0
     

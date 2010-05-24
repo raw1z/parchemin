@@ -4,13 +4,21 @@ require 'date'
 
 module Parchemin
   class Article
-    attr_reader :title, :created_at, :abstract, :body, :filename, :tags
+    attr_reader :id, :title, :created_at, :abstract, :body, :filename, :tags
 
     MONTHS = %w(janv fevr mars avr mai juin juill aout sept oct nov dec)
 
-    def initialize(filename)
-      @filename = filename.split('.').first
+    def initialize(id)
+      if id =~ /(.*)\.markdown$/
+        @id = $1
+      else
+        @id = id
+      end
       parse_attributes(filename)
+    end
+    
+    def filename
+      "#{Parchemin::Config.articles_path}/#{@id}.markdown"
     end
 
     def parse_attributes(filename)
@@ -27,10 +35,6 @@ module Parchemin
       end
 
       @body = RDiscount.new(body).to_html
-    end
-    
-    def id
-      File.basename(filename)
     end
 
     def month
@@ -57,7 +61,7 @@ module Parchemin
       articles = []
       Dir.foreach(Parchemin::Config.articles_path) do |entry|
         next if entry.match /^\./
-        article = Article.new("#{Parchemin::Config.articles_path}/#{entry}")
+        article = Article.new(entry)
 
         if conditions.count == 0
           articles << article
@@ -70,12 +74,14 @@ module Parchemin
 
     def self.search(search)
       output = `grep -Hi '#{search}' #{Parchemin::Config.articles_path}/* | cut -d: -f1`
-      articles = output.split("\n").uniq.map { |filename| Article.new(filename) }
+      articles = output.split("\n").uniq.map do |filename|
+        Article.new(File.basename(filename))
+      end
       articles.sort.reverse
     end
     
     def comments
-      Comment.where(:article => @filename)
+      Comment.where(:article => @id)
     end
 
     protected

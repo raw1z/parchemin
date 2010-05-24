@@ -18,6 +18,6 @@
     %textarea{:name => 'comment[body]', :value => @comment.body}
     .hint (Obligatoire)
   
-    %input{:type => 'hidden', :name => 'comment[article]', :value => @article.filename}
+    %input{:type => 'hidden', :name => 'comment[article]', :value => @article.id}
   
     %input{:type => 'submit', :value => 'Envoyer'}

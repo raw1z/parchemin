@@ -5,8 +5,8 @@ require File.join(File.dirname(__FILE__), "config/config")
 module Parchemin
   class Application < Sinatra::Base
     
-    set :public, File.expand_path(File.join(File.dirname(__FILE__), "../../app/public"))
-    set :views, File.expand_path(File.join(File.dirname(__FILE__), "../../app/views"))
+    set :public, Proc.new { File.expand_path(File.join(Parchemin::Config.root_path, 'assets')) }
+    set :views, Proc.new { File.expand_path(File.join(Parchemin::Config.root_path, 'views')) }
     
     require File.join(File.dirname(__FILE__), "config/environment")
     
@@ -26,8 +26,8 @@ module Parchemin
       haml :index
     end
 
-    get '/articles/:article' do |filename|
-      @article = Parchemin::Article.new("#{Parchemin::Config.articles_path}/#{filename}.markdown")
+    get '/articles/:article' do |article|
+      @article = Parchemin::Article.new(article)
       @comments = @article.comments
       @comment = Parchemin::Comment.new
       haml :show
@@ -51,7 +51,7 @@ module Parchemin
     end
 
     post '/comment' do
-      @article = Parchemin::Article.new("#{params[:comment][:article]}.markdown")
+      @article = Parchemin::Article.new("#{params[:comment][:article]}")
       @comments = @article.comments
 
       @comment = Parchemin::Comment.new(params[:comment])
