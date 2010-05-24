@@ -18,7 +18,7 @@ Any Rack-compliant server can run your newly created blog. For example, run the 
 
     thin start
     
-And just add your articles in the articles directory. Don't forget to add a meta-data header at the top of every files you add. For example :
+Then just add your articles in the articles directory. Parchemin only support Markdown as markup language. So your articles files must have a '.markdown' extension. Don't forget to add a meta-data header at the top of every files you add. For example :
 
     <!-- title : "Lorem ipsum" -->
     <!-- created_at : Date.civil(2010, 3, 23) -->
