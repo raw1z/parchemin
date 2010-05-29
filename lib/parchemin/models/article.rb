@@ -80,8 +80,9 @@ module Parchemin
       Comment.where(:article => @id)
     end
 
-    protected
+    private
     
+    # Parse the header of an article's file
     def parse_attributes(filename)
       body = ""
       File.open(filename) do |f|
@@ -98,6 +99,7 @@ module Parchemin
       @body = RDiscount.new(body).to_html
     end
 
+    # Test if an article will be filtered depending on a condition
     def self.filtered?(article, conditions)
       filtered = true
       conditions.each do |attribute, value|
