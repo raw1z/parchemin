@@ -18,6 +18,7 @@ begin
     gem.add_dependency 'compass', '>= 0.10.1'
     gem.add_dependency 'compass-susy-plugin', '>= 0.7.0.pre8'
     gem.add_dependency 'rdiscount', '>= 1.6.3'
+    gem.add_dependency 'mongoid', '>= 2.0.0.beta6'
     gem.files =  FileList["[A-Z]*", "{lib}/**/*", "{bin}/**/*", "{app}/**/*"]
   end
   Jeweler::GemcutterTasks.new
