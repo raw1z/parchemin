@@ -1,7 +1,7 @@
 <!-- title : "Cillum facilisis" -->
 <!-- created_at : Date.civil(2010, 3, 26) -->
 <!-- abstract : "Cillum facilisis metus turpis wisi interdum rutrum, pharetra aenean feugiat velit facilisi penatibus deserunt nonummy praesent blandit. Quisque augue adipiscing penatibus sociosqu eros torquent curabitur, vel praesent consequat aliquet sapien quam adipisicing. A dolore elit luctus scelerisque suspendisse pretium, commodo fringilla mus tellus nulla mollis suspendisse justo enim tempor congue cursus mus." -->
-<!-- tags : %w(editorial rails) -->
+<!-- tags : %w(editorial rails test) -->
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Cillum facilisis metus turpis wisi interdum rutrum, pharetra aenean feugiat velit facilisi penatibus deserunt nonummy praesent blandit. Quisque augue adipiscing penatibus sociosqu eros torquent curabitur, vel praesent consequat aliquet sapien quam adipisicing. A dolore elit luctus scelerisque suspendisse pretium, commodo fringilla mus tellus nulla mollis suspendisse justo enim tempor congue cursus mus.
